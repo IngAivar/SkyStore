@@ -24,19 +24,35 @@ class Client(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
-        return reverse('app_newsletter:client_detail', args=[str(self.id)])
+        return reverse('app_newsletter:client_detail', args=[str(self.pk)])
 
     def make_inactive(self):
         """
-        Делает клиента неактивным.
+        Делает (Клиента) неактивным.
         """
         self.is_active = False
         self.save()
 
 
+class Message(models.Model):
+    """
+    Модель, описывает (Сообщение)
+    """
+    subject = models.CharField(max_length=255, verbose_name='Тема письма')
+    body = models.TextField(verbose_name='Тело письма')
+
+    class Meta:
+        db_table = 'messages'
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
+
+    def __str__(self):
+        return self.subject
+
+
 class Newsletter(models.Model):
     """
-    Модель, описывающая рассылку
+    Модель, описывает (Рассылку)
     """
     FREQUENCY_CHOICES = [
         ('D', 'Раз в день'),
@@ -73,31 +89,15 @@ class Newsletter(models.Model):
 
     def make_inactive(self):
         """
-        Делает рассылку неактивной.
+        Делает (Рассылку) неактивной.
         """
         self.is_active = False
         self.save()
 
 
-class Message(models.Model):
-    """
-    Модель, описывающая сообщение
-    """
-    subject = models.CharField(max_length=255, verbose_name='Тема письма')
-    body = models.TextField(verbose_name='Тело письма')
-
-    class Meta:
-        db_table = 'messages'
-        verbose_name = 'Сообщение'
-        verbose_name_plural = 'Сообщения'
-
-    def __str__(self):
-        return self.subject
-
-
 class NewsletterLog(models.Model):
     """
-    Модель, описывающая лог рассылки
+    Модель, описывает (Лог рассылки)
     """
     STATUS_CHOICES = [
         ('S', 'Success'),
