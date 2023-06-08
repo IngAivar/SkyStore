@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Каталог
+{% endblock %}
+
+{% block header %}
+    {% if category == 'Все' %}
+        Все товары
+    {% else %}
+        {{ category.name }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if products %}
+        <div class="row">
+            {% for product in products %}
+                {% include 'app_catalog/includes/item_card.html' %}
+            {% endfor %}
+        </div>
+
+        {% include 'app_catalog/includes/pagination.html' %}
+
+    {% else %}
+        <h3>Пока товаров нет</h3>
+    {% endif %}
+{% endblock %}
