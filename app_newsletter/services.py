@@ -4,7 +4,7 @@ from datetime import datetime
 from django.conf import settings
 from django.core.mail import send_mail
 from django.utils import timezone
-from django_celery_beat.models import CrontabSchedule, PeriodicTask
+from django_celery_beat.models import PeriodicTask, CrontabSchedule
 
 from .models import NewsletterLog, Message, Client, Newsletter
 

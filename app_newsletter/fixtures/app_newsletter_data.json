@@ -3,10 +3,10 @@
     "model": "app_newsletter.client",
     "pk": 2,
     "fields": {
-        "email": "rustam-chaniev@yandex.ru",
-        "first_name": "Рустам",
-        "last_name": "Чаниев",
-        "middle_name": "Ахмедович",
+        "email": "arina.viejo@yandex.ru",
+        "first_name": "Арина",
+        "last_name": "Заикина",
+        "middle_name": "Валерьевна",
         "comment": "",
         "is_active": true
     }
@@ -15,9 +15,9 @@
     "model": "app_newsletter.client",
     "pk": 3,
     "fields": {
-        "email": "IngAivar@yandex.ru",
-        "first_name": "Инг",
-        "last_name": "Айвар",
+        "email": "sav2405@gmail.com",
+        "first_name": "Анна",
+        "last_name": "Иванова",
         "middle_name": null,
         "comment": null,
         "is_active": true
@@ -27,10 +27,10 @@
     "model": "app_newsletter.client",
     "pk": 4,
     "fields": {
-        "email": "MiniGan067@yandex.ru",
+        "email": "evgeniy19872004@mail.ru",
         "first_name": "Евгений",
-        "last_name": "Белов",
-        "middle_name": "Никитич",
+        "last_name": "Заикин",
+        "middle_name": "Владимирович",
         "comment": null,
         "is_active": true
     }

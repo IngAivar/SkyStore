@@ -6,7 +6,7 @@ NULLABLE = {'blank': True, 'null': True}
 
 class Client(models.Model):
     """
-    Модель, описания (Клиента)
+    Модель, описывающая клиента
     """
     email = models.EmailField(unique=True, verbose_name='Электронная почта')
     first_name = models.CharField(max_length=100, verbose_name='Имя')
@@ -24,35 +24,19 @@ class Client(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
-        return reverse('app_newsletter:client_detail', args=[str(self.pk)])
+        return reverse('app_newsletter:client_detail', args=[str(self.id)])
 
     def make_inactive(self):
         """
-        Делает (Клиента) неактивным.
+        Делает клиента неактивным.
         """
         self.is_active = False
         self.save()
 
 
-class Message(models.Model):
-    """
-    Модель, описывает (Сообщение)
-    """
-    subject = models.CharField(max_length=255, verbose_name='Тема письма')
-    body = models.TextField(verbose_name='Тело письма')
-
-    class Meta:
-        db_table = 'messages'
-        verbose_name = 'Сообщение'
-        verbose_name_plural = 'Сообщения'
-
-    def __str__(self):
-        return self.subject
-
-
 class Newsletter(models.Model):
     """
-    Модель, описывает (Рассылку)
+    Модель, описывающая рассылку
     """
     FREQUENCY_CHOICES = [
         ('D', 'Раз в день'),
@@ -89,15 +73,31 @@ class Newsletter(models.Model):
 
     def make_inactive(self):
         """
-        Делает (Рассылку) неактивной.
+        Делает рассылку неактивной.
         """
         self.is_active = False
         self.save()
 
 
+class Message(models.Model):
+    """
+    Модель, описывающая сообщение
+    """
+    subject = models.CharField(max_length=255, verbose_name='Тема письма')
+    body = models.TextField(verbose_name='Тело письма')
+
+    class Meta:
+        db_table = 'messages'
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'
+
+    def __str__(self):
+        return self.subject
+
+
 class NewsletterLog(models.Model):
     """
-    Модель, описывает (Лог рассылки)
+    Модель, описывающая лог рассылки
     """
     STATUS_CHOICES = [
         ('S', 'Success'),
