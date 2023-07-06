@@ -4,9 +4,9 @@ from pathlib import Path
 from django.contrib import messages
 from dotenv import load_dotenv
 
-load_dotenv()
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / '.env.template')
 
 SECRET_KEY = 'django-insecure-r*&87bw=zl52mgcyko&+k&tbs85v9w(rp=29x&x4kheli+o!r0'
 
@@ -77,8 +77,8 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        #  'HOST': os.getenv('DB_HOST'),
+        #  'PORT': os.getenv('DB_PORT'),
     }
 }
 
