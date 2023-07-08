@@ -27,7 +27,7 @@
     "model": "app_client.client",
     "pk": 6,
     "fields": {
-        "email": "max@skychimp.pro",
+        "email": "max@skydiv.pro",
         "first_name": "Максим",
         "last_name": "Максимов",
         "middle_name": null,
@@ -39,7 +39,7 @@
     "model": "app_client.client",
     "pk": 7,
     "fields": {
-        "email": "alex@skychimp.ru",
+        "email": "alex@skydiv.ru",
         "first_name": "Алексей",
         "last_name": "Алексеев",
         "middle_name": "Алексеевич",
